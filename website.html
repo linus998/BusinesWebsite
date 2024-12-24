@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linus Beheydt</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #141e30, #243b55);
+            color: #f0f0f0;
+        }
+
+        header {
+            background: #1f2933;
+            color: #ffab00;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #ffab00;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #ffab00;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: #1f2933;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .project h3 {
+            color: #ffab00;
+            margin-top: 0;
+        }
+
+        pre {
+            background: #243b55;
+            color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        footer {
+            background: #1f2933;
+            color: #ffab00;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #ffab00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul a {
+            color: #ffab00;
+            text-decoration: none;
+        }
+
+        ul a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Linus Beheydt</h1>
+        <p>Python Developer | App Creator | Innovator</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a Python developer with expertise in web and mobile app development, data scraping, database design, and creative projects. I’ve built dynamic Flask websites with features like file management, RSVP systems, and secure logins, alongside cross-platform apps using Kotlin and Flutter. My work includes simulations, Minecraft plugin development, and tools for browser-less web scraping. I’ve contributed to eco-friendly initiatives through Plastiloop and managed platforms offering educational video content. If you need innovative, impactful solutions, I’m here to collaborate.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Flask File Manager</h3>
+                    <p>A web app for managing files with features like uploading, downloading, and responsive UI design. Here is a small code snippet!</p>
+                    <pre><code>from flask import Flask, request, render_template
+app = Flask(__name__)
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    file = request.files['file']
+    file.save(f"./uploads/{file.filename}")
+    return "File uploaded successfully!"</code></pre>
+                </div>
+                <div class="project">
+                    <h3>Bouncing Ball Simulation</h3>
+                    <p>A Python simulation that demonstrates physics-based motion with gravity for a bouncing ball. And also a small piece of the code! </p>
+                    <pre><code>import pygame
+
+def simulate_ball():
+    pygame.init()
+    screen = pygame.display.set_mode((500, 500))
+    ball = pygame.Rect(250, 250, 20, 20)
+    velocity = [2, -5]
+    gravity = 0.5
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+        velocity[1] += gravity
+        ball = ball.move(velocity)
+        if ball.bottom >= 500 or ball.top <= 0:
+            velocity[1] = -velocity[1] * 0.8
+        pygame.display.flip()</code></pre>
+                </div>
+                <div class="project">
+                    <h3>Data Scraper for TikTok</h3>
+                    <p>An asynchronous data scraper built using TikTokAPIpy to collect video metadata efficiently. A very minimalistic piece of the code to show.</p>
+                    <pre><code>from tiktokapipy.async_api import AsyncTikTokAPI
+import asyncio
+
+async def scrape_tiktok():
+    async with AsyncTikTokAPI() as api:
+        video_data = await api.video("video_url")
+        print(video_data)
+
+asyncio.run(scrape_tiktok())</code></pre>
+                </div>
+                <div class="project">
+                    <h3>Academy Platform</h3>
+                    <p>A platform for managing a 3-year course with video lessons accessible via secure login. The code snippet is just the basic start of almost every flask application!</p>
+                    <pre><code>from flask import Flask, session, redirect, url_for
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
+@app.route('/login', methods=['POST'])
+def login():
+    session['user'] = request.form['username']
+    return redirect(url_for('dashboard'))</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you'd like to collaborate or have any inquiries, feel free to reach out:</p>
+            <ul>
+                <li>Email: <a href="mailto:Linus.beheydt.psd@gmail.com">Linus.beheydt.psd@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/Linus998" target="_blank">github.com</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Linus Beheydt | <a href="https://github.com/Linus998" target="_blank">GitHub</a></p>
+    </footer>
+</body>
+</html>
